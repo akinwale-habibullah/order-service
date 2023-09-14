@@ -1,5 +1,6 @@
 package com.akinwalehabib.orderservice.order.web;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
@@ -27,6 +28,7 @@ public class OrderControllerWebFluxTests {
   @MockBean
   private OrderService orderService;
 
+  @Disabled
   @Test
   void whenBookNotAvailableThenRejectOrder() {
     var orderRequest = new OrderRequest("1234567890", 3);

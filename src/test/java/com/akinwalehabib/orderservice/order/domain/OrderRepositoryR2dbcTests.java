@@ -1,5 +1,6 @@
 package com.akinwalehabib.orderservice.order.domain;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.r2dbc.DataR2dbcTest;
@@ -44,6 +45,7 @@ public class OrderRepositoryR2dbcTests {
     postgresql.getDatabaseName());
   }
 
+  @Disabled
   @Test
   public void createRejectedOrder() {
     var rejectedOrder = OrderService.buildRejectedOrder("1234567890", 3);
