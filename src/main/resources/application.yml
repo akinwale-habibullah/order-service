@@ -10,6 +10,11 @@ server:
     idle-timeout: 5s
 
 spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/PolarBookshop
   application:
     name: order-service
   lifecycle:
@@ -42,7 +47,7 @@ spring:
         bindings:
           acceptOrder-out-0:
             producer:
-          transacted: true
+              transacted: true
     config:
       uri: http://localhost:8888
       request-connect-timeout: 5000

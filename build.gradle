@@ -18,6 +18,7 @@ repositories {
 ext {
 	set('springCloudVersion', "2021.0.8")
 	set('testcontainersVersion', "1.17.3")
+	set('testKeycloakVersion', "2.3.0")
 }
 
 dependencies {
@@ -26,6 +27,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
 	implementation 'org.springframework.cloud:spring-cloud-starter-config'
 	implementation 'org.springframework.cloud:spring-cloud-stream-binder-rabbit'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
 	
 
 	runtimeOnly 'org.flywaydb:flyway-core'
@@ -49,6 +51,9 @@ dependencies {
 				classifier = "test-binder"
 			}
 	}
+	testImplementation 'org.springframework.security:spring-security-test'
+	testImplementation 'org.testcontainers:junit-jupiter'
+	testImplementation "com.github.dasniko:testcontainers-keycloak:${testKeycloakVersion}"
 
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 }
