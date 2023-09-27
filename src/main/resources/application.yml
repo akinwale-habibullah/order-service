@@ -64,3 +64,15 @@ spring:
     username: user
     password: password
     connection-timeout: 5s
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,health
+  endpoint:
+    health:
+      show-details: always
+      show-components: always
+      probes:
+        enabled: true
