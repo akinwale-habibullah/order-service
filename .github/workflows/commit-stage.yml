@@ -43,9 +43,10 @@ jobs:
         with:
           kubectl: latest
           kubeval: latest
+          kustomize: latest
       - name: Validate Kubernetes manifests
         run: |
-            kubeval --strict -d k8s
+            kustomize build k8s | kubeval --strict -
   package:
     name: Package and Publish
     if: ${{ github.ref == 'refs/heads/main' }}
